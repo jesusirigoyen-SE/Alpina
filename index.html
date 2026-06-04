@@ -600,13 +600,10 @@ lang="es">
   <div style="display:flex;align-items:center;gap:20px;">
     <div class="nav-links" style="display:flex;gap:20px;">
       <a href="#sec-hero" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Tarjetas</a>
-      <a href="#sec-pay" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--pacific)'" onmouseout="this.style.color='var(--text-muted)'">Pay</a>
-      <a href="#sec-instant" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--text-muted)'">Instant</a>
       <a href="#sec-control" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--text-muted)'">Control</a>
       <a href="#sec-contabilidad" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contable</a>
-      <a href="#sec-tarjetas" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Costos</a>
     </div>
-    <a href="#sec-cta" style="text-decoration:none;"><span class="nav-pill">Propuesta CO · Alpina</span></a>
+    <a href="#sec-cta" style="text-decoration:none;"><span class="nav-pill">Propuesta Alpina</span></a>
 
   </div>
 </nav>
@@ -650,8 +647,39 @@ lang="es">
     </div>
   </div>
 
+  <!-- 50 tarjetas World Elite badge -->
+  <div class="reveal" style="display:flex;justify-content:center;margin-bottom:28px;">
+    <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:18px 28px;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:160px;">
+      <!-- Tarjeta mini SVG -->
+      <svg width="80" height="50" viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="80" height="50" rx="7" fill="url(#cardGrad)"/>
+        <defs>
+          <linearGradient id="cardGrad" x1="0" y1="0" x2="80" y2="50" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#1a1a2e"/>
+            <stop offset="100%" stop-color="#16213e"/>
+          </linearGradient>
+        </defs>
+        <!-- Chip -->
+        <rect x="10" y="16" width="14" height="11" rx="2" fill="#C8A84B" opacity="0.9"/>
+        <rect x="12" y="19" width="10" height="2" rx="1" fill="#0A0A0C" opacity="0.4"/>
+        <!-- Banda magnética -->
+        <rect x="0" y="10" width="80" height="7" fill="#000" opacity="0.25"/>
+        <!-- Número -->
+        <text x="10" y="42" font-family="monospace" font-size="7" fill="white" opacity="0.7">•••• •••• •••• ••••</text>
+        <!-- Logo Visa/Elite -->
+        <text x="58" y="15" font-family="serif" font-size="9" font-weight="bold" fill="#C8A84B" opacity="0.9">ELITE</text>
+        <!-- Brillo -->
+        <ellipse cx="65" cy="12" rx="18" ry="8" fill="white" opacity="0.04"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-size:22px;font-weight:900;color:var(--gold);letter-spacing:-0.02em;line-height:1;">50</div>
+        <div style="font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:3px;">Tarjetas World Elite</div>
+      </div>
+    </div>
+  </div>
+
   <div class="hero-stats reveal">
-    <div class="hstat"><div class="hstat-num">∞</div><div class="hstat-label">Tarjetas ilimitadas</div></div>
+    <div class="hstat"><div class="hstat-num">∞</div><div class="hstat-label">Tarjetas virtuales ilimitadas</div></div>
     <div class="hstat"><div class="hstat-num">⚡</div><div class="hstat-label">Emisión instantánea</div></div>
     <div class="hstat"><div class="hstat-num">150+</div><div class="hstat-label">Países aceptados</div></div>
     <div class="hstat"><div class="hstat-num">0</div><div class="hstat-label">Sorpresas al mes</div></div>
@@ -667,185 +695,6 @@ lang="es">
 <!-- ══════════════════════════════════
      SECCIÓN — PRECIOS POR TIER (MXN)
 ══════════════════════════════════════ -->
-<!-- ══════════════════════════════════
-     SECCIÓN — JEEVES PAY
-══════════════════════════════════════ -->
-<section id="sec-pay" class="section" style="background:var(--black);">
-  <div class="section-inner">
-
-    <div class="reveal">
-      <div class="section-tag">③ Jeeves Pay</div>
-      <h2 class="section-h">Paga a tus proveedores.<br><em style="font-style:normal;background:linear-gradient(135deg,var(--pacific),#7ecfde);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">37 días después.</em></h2>
-      <p class="section-sub">Envía dinero a crédito a proveedores nacionales e internacionales — y paga hasta 37 días después. Liquidez garantizada sin sacrificar relaciones comerciales.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:start;" class="reveal">
-
-      <!-- Visual mockup -->
-      <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:20px;padding:32px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(81,172,188,0.1) 0%,transparent 70%);pointer-events:none;"></div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;">Pagos recientes</div>
-
-        <!-- Pay rows -->
-        <div style="display:flex;align-items:center;justify-content:space-between;background:var(--black-3);border:1px solid var(--black-4);border-radius:12px;padding:14px 18px;margin-bottom:10px;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:var(--pacific-dim);border:1px solid var(--pacific-border);display:flex;align-items:center;justify-content:center;font-size:18px;">🏭</div>
-            <div>
-              <div style="font-size:13px;font-weight:700;">Proveedor Nacional</div>
-              <div style="font-size:11px;color:var(--text-muted);">Transferencia local · SPEI</div>
-            </div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-size:15px;font-weight:800;color:var(--gold);">$240,000</div>
-            <div style="font-size:10px;color:var(--green);font-weight:600;">Enviado ✓</div>
-          </div>
-        </div>
-
-        <div style="display:flex;align-items:center;justify-content:space-between;background:var(--black-3);border:1px solid var(--black-4);border-radius:12px;padding:14px 18px;margin-bottom:10px;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:var(--green-dim);border:1px solid rgba(74,188,160,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">🌎</div>
-            <div>
-              <div style="font-size:13px;font-weight:700;">Supplier USA</div>
-              <div style="font-size:11px;color:var(--text-muted);">Internacional · USD</div>
-            </div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-size:15px;font-weight:800;color:var(--green);">$18,500</div>
-            <div style="font-size:10px;color:var(--green);font-weight:600;">Enviado ✓</div>
-          </div>
-        </div>
-
-        <div style="display:flex;align-items:center;justify-content:space-between;background:var(--black-3);border:1px solid var(--black-4);border-radius:12px;padding:14px 18px;margin-bottom:24px;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:var(--amber-dim);border:1px solid rgba(212,145,74,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">🇨🇳</div>
-            <div>
-              <div style="font-size:13px;font-weight:700;">China Supplier</div>
-              <div style="font-size:11px;color:var(--text-muted);">Internacional · CNY</div>
-            </div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-size:15px;font-weight:800;color:var(--amber);">$6,200</div>
-            <div style="font-size:10px;color:var(--green);font-weight:600;">Enviado ✓</div>
-          </div>
-        </div>
-
-        <!-- 37 días badge -->
-        <div style="background:linear-gradient(135deg,var(--pacific-dim),rgba(81,172,188,0.04));border:1px solid var(--pacific-border);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:20px;">
-          <div style="font-size:52px;font-weight:900;color:var(--pacific);line-height:1;letter-spacing:-0.04em;">37</div>
-          <div>
-            <div style="font-size:14px;font-weight:700;color:var(--text-primary);">días para pagar</div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:3px;">Tu flujo de caja, protegido.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Features -->
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div style="background:var(--black-2);border:1px solid var(--pacific-border);border-radius:16px;padding:22px 24px;">
-          <div style="font-size:22px;margin-bottom:10px;">🌐</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Pagos internacionales</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">EE.UU., Brasil, China, México y más — desde una sola plataforma, sin intermediarios bancarios.</div>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:22px 24px;">
-          <div style="font-size:22px;margin-bottom:10px;">⚡</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Pagos masivos en un clic</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Guarda proveedores y ejecuta múltiples pagos simultáneamente sin repetir el proceso.</div>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:22px 24px;">
-          <div style="font-size:22px;margin-bottom:10px;">✅</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Aprobaciones configurables</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Por usuario, monto o proveedor — flujos de autorización a medida con doble firma opcional.</div>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:22px 24px;">
-          <div style="font-size:22px;margin-bottom:10px;">💰</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Opening Fee único
-            <span class="info-tooltip">
-              <span class="info-icon">i</span>
-              <span class="tooltip-text">Únicamente en Jeeves Pay / Transferencias, Pago a Proveedores</span>
-            </span>
-          </div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Solo <span style="color:var(--gold);font-weight:700;">1–3.5%</span> al activar la línea — se cobra una sola vez, a diferencia de los bancos tradicionales.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════
-     SECCIÓN — INSTANT PAY
-══════════════════════════════════════ -->
-<section id="sec-instant" class="section" style="background:var(--black-3);">
-  <div class="section-inner">
-
-    <div class="reveal">
-      <div class="section-tag">④ Instant Pay</div>
-      <h2 class="section-h">Pagos instantáneos<br><em style="font-style:normal;background:linear-gradient(135deg,var(--amber),#e0c060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">con fondos propios.</em></h2>
-      <p class="section-sub">Cuando prefieres pagar con recursos propios sin pasar por crédito. Mismo portal, misma experiencia, trazabilidad total.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:start;" class="reveal">
-
-      <!-- Steps visual -->
-      <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:20px;padding:32px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(212,145,74,0.1) 0%,transparent 70%);pointer-events:none;"></div>
-
-        <div style="text-align:center;margin-bottom:28px;">
-          <div style="font-size:48px;margin-bottom:8px;">⚡</div>
-          <div style="font-size:36px;font-weight:900;color:var(--amber);letter-spacing:-0.02em;">$125,000</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:4px;font-weight:600;letter-spacing:0.06em;">PAGO PROCESADO · AHORA MISMO</div>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;align-items:center;gap:14px;background:var(--black-3);border:1px solid var(--black-4);border-radius:10px;padding:14px 16px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:var(--amber-dim);border:1px solid rgba(212,145,74,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--amber);flex-shrink:0;">1</div>
-            <div style="font-size:13px;font-weight:600;">Autorización en la plataforma</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;background:var(--black-3);border:1px solid var(--black-4);border-radius:10px;padding:14px 16px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:var(--amber-dim);border:1px solid rgba(212,145,74,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--amber);flex-shrink:0;">2</div>
-            <div style="font-size:13px;font-weight:600;">Doble firma configurable</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;background:var(--black-3);border:1px solid var(--black-4);border-radius:10px;padding:14px 16px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:var(--amber-dim);border:1px solid rgba(212,145,74,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--amber);flex-shrink:0;">3</div>
-            <div style="font-size:13px;font-weight:600;">Transferencia instantánea</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;background:var(--amber-dim);border:1px solid rgba(212,145,74,0.25);border-radius:10px;padding:14px 16px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(212,145,74,0.3);border:1px solid rgba(212,145,74,0.5);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--amber);flex-shrink:0;">4</div>
-            <div style="font-size:13px;font-weight:600;color:var(--amber);">Conciliación automática ✓</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Features -->
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div style="background:var(--black-2);border:1px solid rgba(212,145,74,0.25);border-radius:16px;padding:22px 24px;background:rgba(212,145,74,0.05);">
-          <div style="font-size:22px;margin-bottom:10px;">🔄</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;color:var(--amber);">Un solo ecosistema</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Crédito o fondos propios — mismo panel, misma experiencia. Sin cambiar de herramienta.</div>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:22px 24px;">
-          <div style="font-size:22px;margin-bottom:10px;">🔍</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Trazabilidad completa</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Cada transacción queda registrada con historial, aprobadores y timestamp inmutable.</div>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:22px 24px;">
-          <div style="font-size:22px;margin-bottom:10px;">🔒</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Doble firma</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Configura aprobaciones de dos firmantes para montos sensibles y mayor control de seguridad.</div>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:22px 24px;">
-          <div style="font-size:22px;margin-bottom:10px;">📊</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px;">Reportes al instante</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Visibilidad completa por fecha, departamento o proveedor — exportable a tu ERP en un clic.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
 <!-- ══════════════════════════════════
      SECCIÓN — PLATAFORMA DE CONTROL
 ══════════════════════════════════════ -->
@@ -990,7 +839,7 @@ lang="es">
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;align-items:center;gap:10px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;"></span><span style="font-size:13px;"><strong style="color:var(--text-primary);">Comprobantes digitales</strong><span style="color:var(--text-muted);"> — captura y clasifica gastos en segundos</span></span></div>
             <div style="display:flex;align-items:center;gap:10px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;"></span><span style="font-size:13px;"><strong style="color:var(--text-primary);">Carga manual</strong><span style="color:var(--text-muted);"> — facturas PDF y XML directas</span></span></div>
-            <div style="display:flex;align-items:center;gap:10px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;"></span><span style="font-size:13px;"><strong style="color:var(--text-primary);">Tickets digitales</strong><span style="color:var(--text-muted);"> — auto-genera factura</span></span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;"></span><span style="font-size:13px;"><strong style="color:var(--text-primary);">Tickets digitales</strong></span></div>
             <div style="display:flex;align-items:center;gap:10px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;"></span><span style="font-size:13px;"><strong style="color:var(--text-primary);">Notas y comprobantes</strong><span style="color:var(--text-muted);"> — escritos por el usuario</span></span></div>
           </div>
         </div>
@@ -1018,113 +867,6 @@ lang="es">
 
   </div>
 </section>
-
-
-<!-- ══════════════════════════════════
-     SECCIÓN — ECOSYSTEM OVERVIEW
-══════════════════════════════════════ -->
-<section class="section" style="background:var(--black);">
-  <div class="section-inner">
-
-    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 56px;">
-      <div class="section-tag" style="display:inline-block;">El ecosistema completo</div>
-      <h2 class="section-h">Todo conectado.<br><em style="font-style:normal;background:linear-gradient(135deg,var(--gold),var(--pacific));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Un solo panel.</em></h2>
-      <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">Jeeves no es una tarjeta ni solo pagos. Es la plataforma financiera operativa que reemplaza cuatro herramientas distintas.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;" class="reveal">
-
-      <div style="background:var(--black-2);border:1px solid var(--gold-border);border-radius:16px;padding:24px 18px;text-align:center;">
-        <div style="width:48px;height:48px;border-radius:14px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px;">💳</div>
-        <div style="font-size:13px;font-weight:800;color:var(--gold);margin-bottom:6px;">Jeeves Card</div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Tarjetas corporativas ilimitadas con control total</div>
-      </div>
-
-      <div style="background:var(--black-2);border:1px solid var(--pacific-border);border-radius:16px;padding:24px 18px;text-align:center;">
-        <div style="width:48px;height:48px;border-radius:14px;background:var(--pacific-dim);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px;">🌐</div>
-        <div style="font-size:13px;font-weight:800;color:var(--pacific);margin-bottom:6px;">Jeeves Pay</div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Pagos a proveedores con 37 días de gracia</div>
-      </div>
-
-      <div style="background:var(--black-2);border:1px solid rgba(212,145,74,0.25);border-radius:16px;padding:24px 18px;text-align:center;">
-        <div style="width:48px;height:48px;border-radius:14px;background:var(--amber-dim);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px;">⚡</div>
-        <div style="font-size:13px;font-weight:800;color:var(--amber);margin-bottom:6px;">Instant Pay</div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Pagos instantáneos con fondos propios</div>
-      </div>
-
-      <div style="background:var(--black-2);border:1px solid rgba(74,188,160,0.25);border-radius:16px;padding:24px 18px;text-align:center;">
-        <div style="width:48px;height:48px;border-radius:14px;background:var(--green-dim);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px;">🎛️</div>
-        <div style="font-size:13px;font-weight:800;color:var(--green);margin-bottom:6px;">Control</div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Visibilidad y gobierno del gasto en tiempo real</div>
-      </div>
-
-      <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:16px;padding:24px 18px;text-align:center;">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(201,168,76,0.06);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px;">🧾</div>
-        <div style="font-size:13px;font-weight:800;color:var(--text-secondary);margin-bottom:6px;">Contabilidad</div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:1.5;">Automatización GL y ERP</div>
-      </div>
-
-    </div>
-
-    <!-- Stats bar -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;" class="reveal">
-      <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:14px;padding:22px;text-align:center;">
-        <div style="font-size:32px;font-weight:900;color:var(--gold);line-height:1;">150+</div>
-        <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:5px;">Países aceptados</div>
-      </div>
-      <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:14px;padding:22px;text-align:center;">
-        <div style="font-size:32px;font-weight:900;color:var(--pacific);line-height:1;">37</div>
-        <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:5px;">Días de liquidez Pay</div>
-      </div>
-      <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:14px;padding:22px;text-align:center;">
-        <div style="font-size:32px;font-weight:900;color:var(--green);line-height:1;">1%</div>
-        <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:5px;">Cashback sin tope · 6 meses</div>
-      <div style="font-size:9px;color:var(--text-muted);margin-top:3px;opacity:0.7;">Aplica solo en tarjeta de crédito</div>
-      </div>
-      <div style="background:var(--black-2);border:1px solid var(--black-4);border-radius:14px;padding:22px;text-align:center;">
-        <div style="font-size:28px;font-weight:900;color:var(--amber);line-height:1;">0%</div>
-        <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:5px;">de interés en uso de tarjetas</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- ══════════════════════════════════
-     SECCIÓN — ESTRUCTURA DE PRECIOS
-══════════════════════════════════════ -->
-<section id="sec-tarjetas" class="section" style="background:var(--black);">
-  <div class="section-inner">
-
-    <div class="reveal">
-      <div class="section-tag">① Estructura de Precios</div>
-      <h2 class="section-h">Precio escalonado<br>por número de usuarios.</h2>
-      <p class="section-sub">Alpina opera en el tier de mayor volumen — el precio por usuario más competitivo de la plataforma.</p>
-    </div>
-
-    <!-- Tier cards -->
-    <div class="tier-grid reveal" id="tierGrid" style="grid-template-columns:1fr;max-width:360px;">
-
-      
-
-      
-
-      
-
-      <div class="tier-card t4 active-tier" id="tc4">
-        <div class="active-tier-indicator"></div>
-        <div class="tier-badge">Tier 4 · Best Value</div>
-        <div class="tier-users">200+ usuarios</div>
-        <div class="tier-price-usd" id="t4_usd" style="font-size:28px;font-weight:900;color:var(--text-primary);line-height:1;letter-spacing:-0.02em;">USD 8.00</div>
-        <div class="tier-price-unit">USD / usuario / mes</div>
-        <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">+ <strong style="color:var(--pacific);">USD 200/mes</strong> platform fee</div>
-      </div>
-
-    </div>
-
-
 
 
 <!-- ══════════════════════════════════
@@ -1163,20 +905,16 @@ lang="es">
         <div class="calc-left">
           <div class="calc-section-label">📋 Configura tu empresa · Precios en USD</div>
 
-          <!-- Usuarios -->
+          <!-- Costo plataforma mensual -->
           <div class="input-group">
-            <label class="input-label">Número de usuarios (tarjetas activas)
-              <span class="info-tooltip">
-                <span class="info-icon">i</span>
-                <span class="tooltip-text">Un usuario es un perfil de admin, finanzas, administrador de tarjeta, contador o empleado.</span>
-              </span>
+            <label class="input-label">Costo de la plataforma mensual
             </label>
             <div class="input-row">
-              <input id="usuarios" class="calc-input" type="number" value="250" min="1" max="2000" oninput="syncSlider(); recalc()">
-              <span class="input-suffix">usuarios</span>
+              <span class="input-prefix">$</span>
+              <input id="costo_plataforma" class="calc-input" type="number" value="1000" step="100" oninput="recalc()">
+              <span class="input-suffix">USD/mes</span>
             </div>
-            <input id="slider_usuarios" class="user-slider" type="range" min="1" max="500" value="250" oninput="syncInput(); recalc()">
-            <div class="input-hint" id="hint_tier">→ Tier detectado automáticamente</div>
+            <div class="input-hint">Equivale a USD <span id="hint_plat_ano">12,000</span> / año</div>
           </div>
 
           <!-- Descuento -->
@@ -1205,28 +943,7 @@ lang="es">
             </div>
           </div>
 
-            <!-- Comisión Valera (7) -->
-          <div style="border-top:1px solid var(--black-4);padding-top:22px;margin-top:4px;">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
-              <label class="toggle-switch">
-                <input type="checkbox" id="valera_check" onchange="toggleValera()">
-                <span class="toggle-slider"></span>
-              </label>
-              <span class="calc-section-label" style="margin-bottom:0;">💸 Comisión Valera</span>
-            </div>
-            <div style="font-size:11px;color:var(--text-muted);margin-bottom:16px;">Activa si el cliente paga comisión Valera — calcula el ahorro equivalente al eliminarla</div>
 
-            <div id="valera-fields" style="display:none;">
-              <div class="input-group">
-                <label class="input-label">¿Qué comisión te cobra Valera? (%)</label>
-                <div class="input-row">
-                  <input id="comision_valera" class="calc-input blue" type="number" value="2.0" step="0.1" min="0" max="20" oninput="recalc()">
-                  <span class="input-suffix">%</span>
-                </div>
-                <div class="input-hint">Se aplica sobre el gasto mensual total en tarjetas</div>
-              </div>
-            </div>
-          </div>
           <!-- Cajero automático (3) -->
           <div style="border-top:1px solid var(--black-4);padding-top:22px;margin-top:4px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
@@ -1271,7 +988,6 @@ lang="es">
             <div class="result-row-top">
               <div>
                 <div class="result-name">Plataforma Jeeves</div>
-                <div class="result-sub" id="res_tier_label">Tier — · — usuarios</div>
               </div>
               <div class="result-amounts">
                 <div class="result-mxn" id="res_plat_usd" style="font-size:17px;">USD 0 / año</div>
@@ -1318,21 +1034,7 @@ lang="es">
               </div>
               <div class="result-amounts">
                 <div class="result-mxn green" id="res_caj_usd">USD 0</div>
-                <div class="result-usd" id="res_caj_cop" style="font-size:10px;opacity:0.5;"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Valera savings -->
-          <div class="result-row" id="res_valera_row" style="display:none;">
-            <div class="result-row-top">
-              <div>
-                <div class="result-name" id="res_valera_label">💸 Ahorro comisión Valera</div>
-                <div class="result-sub">Comisión eliminada × gasto mensual en tarjetas (USD)</div>
-              </div>
-              <div class="result-amounts">
-                <div class="result-mxn green" id="res_valera_usd">USD 0</div>
-                <div class="result-usd" id="res_valera_cop">≈ COP 0</div>
+                <div class="result-usd" id="res_caj_cop">≈ COP 0</div>
               </div>
             </div>
           </div>
@@ -1359,8 +1061,30 @@ lang="es">
             </div>
           </div>
 
+          <!-- Competencia comparison -->
+          <div style="margin-top:20px;background:linear-gradient(135deg,rgba(255,255,255,0.03) 0%,rgba(255,255,255,0.01) 100%);border:1px solid var(--black-4);border-radius:16px;padding:20px 22px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+              <span style="font-size:16px;">⚡</span>
+              <div style="font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.07em;">Competencia · Costo mensual estimado</div>
+            </div>
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+              <div>
+                <div style="font-size:26px;font-weight:900;color:var(--text-primary);letter-spacing:-0.02em;line-height:1;" id="comp_usd">USD 0</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">/ mes · tipo de cambio en vivo</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:16px;font-weight:700;color:var(--text-secondary);" id="comp_cop">≈ COP 0</div>
+                <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">COP equivalente</div>
+              </div>
+            </div>
+            <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--black-4);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+              <div style="font-size:11px;color:var(--text-muted);">Ahorro anual vs competencia</div>
+              <div style="font-size:15px;font-weight:800;color:var(--green);" id="comp_ahorro">—</div>
+            </div>
+          </div>
+
           <div style="margin-top:12px;font-size:10px;color:var(--text-muted);line-height:1.6;">
-            * Tipo de cambio COP/USD configurable. El cashback aplica 6 meses del año. Los ahorros en cajeros son estimaciones basadas en comisiones actuales del mercado.
+            * Tipo de cambio COP/USD configurable. El cashback aplica 6 meses del año.
           </div>
           <div style="margin-top:8px;font-size:10px;color:var(--gold);font-weight:600;letter-spacing:0.04em;">💡 Precio más IVA · Tipo de cambio COP/USD de referencia</div>
         </div>
@@ -1479,7 +1203,7 @@ lang="es">
         <polygon fill="#9A9690" points="943.66 806.35 1154.01 632.24 1092.57 567.02 942.17 640.37 943.66 806.35"/>
         <path fill="#9A9690" d="M821.56,907.85v34.14c43.29,17.48,78.11,47.42,121.41,64.9,19.33-35.07,47.12-82.62,66.45-117.69l-74.68-75.47-113.17,94.12Z"/>
       </svg>
-      <span>Jeeves &nbsp;·&nbsp; tryjeeves.com &nbsp;·&nbsp; Propuesta CO · Colombia · Alpina</span>
+      <span>Jeeves &nbsp;·&nbsp; tryjeeves.com &nbsp;·&nbsp; Propuesta Colombia · Alpina</span>
     </div>
     <div style="width:40px;height:1px;background:var(--black-4);"></div>
     <div style="font-size:10px;letter-spacing:0.14em;color:var(--text-muted);opacity:0.6;">
@@ -1531,20 +1255,8 @@ function fcop(n) {
 // ──────────────────────────────────
 //  SLIDER SYNC
 // ──────────────────────────────────
-function syncSlider() {
-  var u = parseInt(document.getElementById('usuarios').value) || 1;
-  var s = document.getElementById('slider_usuarios');
-  var clamped = Math.min(Math.max(u, 1), 500);
-  s.value = clamped;
-  var pct = ((clamped - 1) / 499 * 100);
-  s.style.setProperty('--pct', pct + '%');
-}
-function syncInput() {
-  var v = parseInt(document.getElementById('slider_usuarios').value) || 1;
-  document.getElementById('usuarios').value = v;
-  var pct = ((v - 1) / 499 * 100);
-  document.getElementById('slider_usuarios').style.setProperty('--pct', pct + '%');
-}
+function syncSlider() { /* removed */ }
+function syncInput() { /* removed */ }
 
 // ──────────────────────────────────
 //  TIER DETECTION
@@ -1615,46 +1327,33 @@ function applyCustomFF() {
 // ──────────────────────────────────
 function recalc() {
   var tdc   = parseFloat(document.getElementById('tdc').value) || 4200; // COP per USD
-  var users = parseInt(document.getElementById('usuarios').value) || 1;
-  var desc  = parseFloat(document.getElementById('descuento').value) || 0;
+  var platMesUSD = parseFloat(document.getElementById('costo_plataforma').value) || 1000; // USD/mes
   var gastoMesCOP = parseFloat(document.getElementById('gasto_tarjetas').value) || 0; // COP
   var gastoMesUSD = gastoMesCOP / tdc; // convertir a USD
   var cajeroActivo = document.getElementById('cajero_check').checked;
   var cajMesCOP  = cajeroActivo ? (parseFloat(document.getElementById('gasto_cajeros').value) || 0) : 0; // COP
   var cajMesUSD  = cajMesCOP / tdc; // convertir a USD
   var comCaj   = cajeroActivo ? (parseFloat(document.getElementById('comision_caj').value) || 0) : 0;
-  var valeraActivo = document.getElementById('valera_check').checked;
-  var comValera = valeraActivo ? (parseFloat(document.getElementById('comision_valera').value) || 0) : 0;
 
-  // Tier
-  var tIdx = getTier(users);
-  var tier = TIERS[tIdx];
-  highlightTier(tIdx);
+  // Tier 4 siempre activo
+  highlightTier(3);
 
-  // Update tier cards display (solo Tier 4 visible)
-  TIERS.forEach(function(t, i) {
-    var el = document.getElementById('t'+(i+1)+'_usd');
-    if (el) el.textContent = 'USD ' + t.usd.toFixed(2);
-  });
-
-  // Price per user after discount (USD)
-  var priceUnitUSD = tier.usd * (1 - desc/100);
-
-  // Usuarios cost — USD
-  var usersAnoUSD  = priceUnitUSD * users * 12;
-
-  // Platform fee — USD
-  var feeAnoUSD = PLATFORM_FEE_USD * 12; // 2,400 USD/año
+  // Update tier card display
+  var t4el = document.getElementById('t4_usd');
+  if (t4el) t4el.textContent = 'USD 8.00';
 
   // Plataforma total — USD
-  var platAnoUSD = usersAnoUSD + feeAnoUSD;
+  var platAnoUSD = platMesUSD * 12;
   var platAnoCOP = platAnoUSD * tdc;
-  var platMesUSD = platAnoUSD / 12;
 
-  // Total investment = platform only (no FF addon)
+  // Total investment
   var totalAnoUSD = platAnoUSD;
   var totalAnoCOP = totalAnoUSD * tdc;
-  var totalMesUSD = totalAnoUSD / 12;
+  var totalMesUSD = platMesUSD;
+
+  // Hint anual
+  var hintEl = document.getElementById('hint_plat_ano');
+  if (hintEl) hintEl.textContent = fusd(platAnoUSD);
 
   // ── Savings ──
   // Cashback 1% × 6 months (gasto in USD)
@@ -1665,31 +1364,21 @@ function recalc() {
   var cajAnoUSD = cajMesUSD * (comCaj/100) * 12;
   var cajAnoCOP = cajAnoUSD * tdc;
 
-  // Valera savings (USD gasto)
-  var valeraAnoUSD = valeraActivo ? (gastoMesUSD * (comValera/100) * 12) : 0;
-  var valeraAnoCOP = valeraAnoUSD * tdc;
 
   // Neto
-  var totalSavingsUSD = cbUSD + cajAnoUSD + valeraAnoUSD;
+  var totalSavingsUSD = cbUSD + cajAnoUSD;
   var netoAnoUSD = totalAnoUSD - totalSavingsUSD;
   var netoAnoCOP = netoAnoUSD * tdc;
 
   // ROI
   var roi = totalAnoUSD > 0 ? (totalSavingsUSD / totalAnoUSD) * 100 : 0;
 
-  // ── Update tier hint ──
-  var tNames = ['Tier 1','Tier 2','Tier 3','Tier 4'];
-  var hintTxt = '→ ' + tNames[tIdx] + ' · USD ' + tier.usd.toFixed(2) + '/usuario' +
-    (desc > 0 ? ' − ' + desc + '% dto. = USD ' + priceUnitUSD.toFixed(2) + ' neto' : '') +
-    ' + Platform Fee USD ' + PLATFORM_FEE_USD + '/mes';
-  document.getElementById('hint_tier').textContent = hintTxt;
-
   // ── Update gasto anual hint ──
   document.getElementById('hint_gasto_anual').textContent =
     gastoMesCOP > 0 ? 'Anual: COP ' + fcop(gastoMesCOP * 12) : '';
 
   // ── Update results ──
-  document.getElementById('res_tier_label').textContent = TIER_LABELS[tIdx] + (desc>0?' · −'+desc+'% dto.':'') + ' + Platform Fee';
+
   setText('res_plat_usd', fusd(platAnoUSD) + ' / año');
   setText('res_plat_cop', '≈ COP ' + fcop(platAnoCOP) + ' / año');
 
@@ -1705,19 +1394,11 @@ function recalc() {
     show('res_caj_row');
     document.getElementById('res_caj_label').textContent = 'Ahorro comisiones cajero (' + comCaj + '%)';
     setText('res_caj_usd', fusd(cajAnoUSD));
+    setText('res_caj_cop', '≈ COP ' + fcop(cajAnoCOP));
   } else {
     hide('res_caj_row');
   }
 
-  // Valera savings
-  if (valeraActivo && valeraAnoUSD > 0) {
-    show('res_valera_row');
-    document.getElementById('res_valera_label').textContent = '💸 Ahorro comisión Valera (' + comValera + '%)';
-    setText('res_valera_usd', fusd(valeraAnoUSD));
-    setText('res_valera_cop', '≈ COP ' + fcop(valeraAnoCOP));
-  } else {
-    hide('res_valera_row');
-  }
 
   // Neto
   var netoEl = document.getElementById('res_neto_usd2');
@@ -1727,6 +1408,28 @@ function recalc() {
   }
   setText('res_neto_cop', '≈ COP ' + fcop(netoAnoCOP));
   setText('res_neto_usd', '≈ COP ' + fcop(netoAnoCOP));
+
+  // ── Competencia ──
+  var compMesCOP = 3600000;
+  var compMesUSD = compMesCOP / tdc;
+  var compAnoUSD = compMesUSD * 12;
+  var compAnoCOP = compMesCOP * 12;
+  setText('comp_usd', fusd(compMesUSD) + ' / mes');
+  setText('comp_cop', '≈ COP ' + fcop(compMesCOP));
+  var ahorroVsCompUSD = compAnoUSD - netoAnoUSD;
+  var ahorroEl = document.getElementById('comp_ahorro');
+  if (ahorroEl) {
+    if (ahorroVsCompUSD > 0) {
+      ahorroEl.textContent = 'Jeeves ahorra ' + fusd(ahorroVsCompUSD) + ' / año';
+      ahorroEl.style.color = 'var(--green)';
+    } else if (ahorroVsCompUSD < 0) {
+      ahorroEl.textContent = 'Competencia ahorra ' + fusd(Math.abs(ahorroVsCompUSD)) + ' / año';
+      ahorroEl.style.color = 'var(--amber)';
+    } else {
+      ahorroEl.textContent = 'Precio equivalente';
+      ahorroEl.style.color = 'var(--text-muted)';
+    }
+  }
 
   // ROI
   var roiEl = document.getElementById('res_roi');
@@ -1740,9 +1443,9 @@ function recalc() {
   }
 
   // Breakdown table (compatible layer)
-  setText('bt_users_mes', fusd(usersAnoUSD / 12));
-  setText('bt_users_ano', fusd(usersAnoUSD));
-  setText('bt_users_usd', fusd(usersAnoUSD));
+  setText('bt_users_mes', fusd(platMesUSD));
+  setText('bt_users_ano', fusd(platAnoUSD));
+  setText('bt_users_usd', fusd(platAnoUSD));
   setText('bt_fee_mes', fusd(feeAnoUSD / 12));
   setText('bt_fee_ano', fusd(feeAnoUSD));
   setText('bt_fee_usd', fusd(feeAnoUSD));
@@ -1763,11 +1466,6 @@ function toggleCajero() {
   setTimeout(recalc, 0);
 }
 
-function toggleValera() {
-  var checked = document.getElementById('valera_check').checked;
-  document.getElementById('valera-fields').style.display = checked ? '' : 'none';
-  setTimeout(recalc, 0);
-}
 
 function setText(id, val) {
   var el = document.getElementById(id);
@@ -1795,7 +1493,6 @@ var obs = new IntersectionObserver(function(entries) {
 reveals.forEach(function(el) { obs.observe(el); });
 
 // ── Init ──
-syncSlider();
 recalc();
 
 // ── Tipo de cambio COP/USD en tiempo real — fuente: xe.com ──
