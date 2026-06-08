@@ -943,7 +943,7 @@ lang="es">
                 <input id="gasto_tarjetas" class="calc-input" type="number" value="550000000" step="5000000" oninput="recalc()">
                 <span class="input-suffix">COP/mes</span>
               </div>
-              <div class="input-hint" id="hint_gasto_anual" style="color:var(--text-muted);">Anual: —</div>
+              <div class="input-hint" id="hint_gasto_anual" style="color:var(--text-muted);">Semestral: —</div>
             </div>
           </div>
 
@@ -1383,7 +1383,7 @@ function recalc() {
 
   // ── Update gasto anual hint ──
   document.getElementById('hint_gasto_anual').textContent =
-    gastoMesCOP > 0 ? 'Anual: COP ' + fcop(gastoMesCOP * 12) : '';
+    gastoMesCOP > 0 ? 'Semestral: COP ' + fcop(gastoMesCOP * 6) : '';
 
   // ── Update results ──
 
