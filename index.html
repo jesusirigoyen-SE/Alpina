@@ -948,6 +948,32 @@ lang="es">
           </div>
 
 
+          <!-- Impuesto por transacciones en tarjeta (2.5) -->
+          <div style="border-top:1px solid var(--black-4);padding-top:22px;margin-top:4px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+              <label class="toggle-switch">
+                <input type="checkbox" id="impuesto_check" onchange="toggleImpuesto()" checked>
+                <span class="toggle-slider"></span>
+              </label>
+              <span class="calc-section-label" style="margin-bottom:0;">💸 Gravamen 4×1000 — Impuesto por Transacciones</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:16px;">Gravamen 4×1000: por cada $1,000 COP en transacciones se cobran $4 COP (= 0.4%). Se calcula automáticamente sobre el gasto mensual en tarjetas.</div>
+
+            <div id="impuesto-fields">
+              <div class="input-group">
+                <label class="input-label">Costo mensual Gravamen 4×1000 ($4 por cada $1,000 COP)</label>
+                <div class="input-row">
+                  <span class="input-prefix">$</span>
+                  <input id="impuesto_valor" class="calc-input" type="text" readonly
+                    style="background:rgba(201,168,76,0.03);border-color:rgba(201,168,76,0.15);color:var(--text-secondary);cursor:default;"
+                    value="0">
+                  <span class="input-suffix">COP/mes</span>
+                </div>
+                <div class="input-hint" style="color:var(--gold);">Automático: Gasto mensual ÷ 1,000 × $4 · no editable</div>
+              </div>
+            </div>
+          </div>
+
           <!-- Cajero automático (3) -->
           <div style="border-top:1px solid var(--black-4);padding-top:22px;margin-top:4px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
@@ -1029,6 +1055,20 @@ lang="es">
               <div class="result-amounts">
                 <div class="result-mxn green" id="res_cb_usd">USD 0</div>
                 <div class="result-usd" id="res_cb_cop">≈ COP 0</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Impuesto savings row -->
+          <div class="result-row" id="res_imp_row" style="display:none;">
+            <div class="result-row-top">
+              <div>
+                <div class="result-name">Ahorro Gravamen 4×1000</div>
+                <div class="result-sub">$4 por cada $1,000 COP en transacciones · ahorro anual</div>
+              </div>
+              <div class="result-amounts">
+                <div class="result-mxn green" id="res_imp_usd">USD 0</div>
+                <div class="result-usd" id="res_imp_cop">≈ COP 0</div>
               </div>
             </div>
           </div>
@@ -1338,6 +1378,7 @@ function recalc() {
   var platMesUSD = parseFloat(document.getElementById('costo_plataforma').value) || 1000; // USD/mes
   var gastoMesCOP = parseFloat(document.getElementById('gasto_tarjetas').value) || 0; // COP
   var gastoMesUSD = gastoMesCOP / tdc; // convertir a USD
+  var impuestoActivo = document.getElementById('impuesto_check').checked;
   var cajeroActivo = document.getElementById('cajero_check').checked;
   var cajMesCOP  = cajeroActivo ? (parseFloat(document.getElementById('gasto_cajeros').value) || 0) : 0; // COP
   var cajMesUSD  = cajMesCOP / tdc; // convertir a USD
@@ -1372,14 +1413,22 @@ function recalc() {
   var cajAnoUSD = cajMesUSD * (comCaj/100) * 12;
   var cajAnoCOP = cajAnoUSD * tdc;
 
+  // Impuesto 4x1000 savings
+  var impAnoUSD = impuestoActivo ? (gastoMesUSD * 0.004 * 12) : 0;
+  var impAnoCOP = impAnoUSD * tdc;
 
   // Neto
-  var totalSavingsUSD = cbUSD + cajAnoUSD;
+  var totalSavingsUSD = cbUSD + cajAnoUSD + impAnoUSD;
   var netoAnoUSD = totalAnoUSD - totalSavingsUSD;
   var netoAnoCOP = netoAnoUSD * tdc;
 
   // ROI
   var roi = totalAnoUSD > 0 ? (totalSavingsUSD / totalAnoUSD) * 100 : 0;
+
+  // ── Update impuesto_valor display ──
+  var impMesCOP = gastoMesCOP * 0.004; // 0.4% = 4x1000
+  var impMesField = document.getElementById('impuesto_valor');
+  if (impMesField) impMesField.value = impMesCOP > 0 ? fcop(impMesCOP) : '0';
 
   // ── Update gasto anual hint ──
   document.getElementById('hint_gasto_anual').textContent =
@@ -1407,6 +1456,14 @@ function recalc() {
     hide('res_caj_row');
   }
 
+  // Impuesto
+  if (impuestoActivo && impAnoUSD > 0) {
+    show('res_imp_row');
+    setText('res_imp_usd', fusd(impAnoUSD));
+    setText('res_imp_cop', '≈ COP ' + fcop(impAnoCOP));
+  } else {
+    hide('res_imp_row');
+  }
 
   // Neto
   var netoEl = document.getElementById('res_neto_usd2');
@@ -1450,27 +1507,17 @@ function recalc() {
     document.getElementById('roi_fill').style.width = '0%';
   }
 
-  // Breakdown table (compatible layer)
-  setText('bt_users_mes', fusd(platMesUSD));
-  setText('bt_users_ano', fusd(platAnoUSD));
-  setText('bt_users_usd', fusd(platAnoUSD));
-  setText('bt_fee_mes', fusd(feeAnoUSD / 12));
-  setText('bt_fee_ano', fusd(feeAnoUSD));
-  setText('bt_fee_usd', fusd(feeAnoUSD));
-  setText('bt_plat_mes', fusd(platMesUSD));
-  setText('bt_plat_ano', fusd(platAnoUSD));
-  setText('bt_plat_usd', fusd(platAnoUSD));
-  setText('bt_cb_mes', fusd(cbUSD / 6));
-  setText('bt_cb_ano', '−' + fusd(cbUSD));
-  setText('bt_cb_usd', '−' + fusd(cbUSD));
-  setText('bt_neto_mes', fusd(netoAnoUSD / 12));
-  setText('bt_neto_ano', fusd(netoAnoUSD));
-  setText('bt_neto_usd', fusd(netoAnoUSD));
 } // end recalc
 
 function toggleCajero() {
   var checked = document.getElementById('cajero_check').checked;
   document.getElementById('cajero-fields').style.display = checked ? '' : 'none';
+  setTimeout(recalc, 0);
+}
+
+function toggleImpuesto() {
+  var checked = document.getElementById('impuesto_check').checked;
+  document.getElementById('impuesto-fields').style.display = checked ? '' : 'none';
   setTimeout(recalc, 0);
 }
 
