@@ -974,6 +974,46 @@ lang="es">
             </div>
           </div>
 
+          <!-- Automatización de Facturas -->
+          <div style="border-top:1px solid var(--black-4);padding-top:22px;margin-top:4px;">
+            <div class="calc-section-label">🧑‍💼 Ahorro por Automatización de Facturas</div>
+
+            <div class="input-group">
+              <label class="input-label">Sueldo capturista (COP/mes)</label>
+              <div class="input-row">
+                <span class="input-prefix">$</span>
+                <input id="sueldo_cap" class="calc-input" type="number" value="3500000" step="100000" oninput="recalc()">
+                <span class="input-suffix">COP/mes</span>
+              </div>
+              <div class="input-hint">Costo mensual del capturista manual</div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Facturas procesadas al mes</label>
+              <div class="input-row">
+                <input id="facturas_mes" class="calc-input blue" type="number" value="200" step="10" min="1" oninput="recalc()">
+                <span class="input-suffix">facturas / mes</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Minutos por factura (captura manual)</label>
+              <div class="input-row">
+                <input id="min_factura" class="calc-input blue" type="number" value="8" step="1" min="1" oninput="recalc()">
+                <span class="input-suffix">min / factura</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Horas trabajadas al mes</label>
+              <div class="input-row">
+                <input id="horas_mes" class="calc-input blue" type="number" value="160" step="8" min="1" oninput="recalc()">
+                <span class="input-suffix">hrs / mes</span>
+              </div>
+              <div class="input-hint" id="hint_cap">Capacidad y costo por factura calculados automáticamente</div>
+            </div>
+          </div>
+
           <!-- Cajero automático (3) -->
           <div style="border-top:1px solid var(--black-4);padding-top:22px;margin-top:4px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
@@ -1057,6 +1097,21 @@ lang="es">
                 <div class="result-usd" id="res_cb_cop">≈ COP 0</div>
               </div>
             </div>
+          </div>
+
+          <!-- Factura automation savings row -->
+          <div class="result-row" id="res_cap_row">
+            <div class="result-row-top">
+              <div>
+                <div class="result-name">Ahorro en Automatización de Facturas</div>
+                <div class="result-sub" id="res_cap_sub">Facturas automatizadas vs. captura manual</div>
+              </div>
+              <div class="result-amounts">
+                <div class="result-mxn green" id="res_cap_usd">USD 0</div>
+                <div class="result-usd" id="res_cap_cop">≈ COP 0</div>
+              </div>
+            </div>
+            <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--black-4);font-size:11px;color:var(--text-muted);" id="res_cap_detail">—</div>
           </div>
 
           <!-- Impuesto savings row -->
@@ -1383,6 +1438,10 @@ function recalc() {
   var cajMesCOP  = cajeroActivo ? (parseFloat(document.getElementById('gasto_cajeros').value) || 0) : 0; // COP
   var cajMesUSD  = cajMesCOP / tdc; // convertir a USD
   var comCaj   = cajeroActivo ? (parseFloat(document.getElementById('comision_caj').value) || 0) : 0;
+  var sueldoCap    = parseFloat(document.getElementById('sueldo_cap').value)    || 3500000;
+  var facturasMes  = parseFloat(document.getElementById('facturas_mes').value)  || 200;
+  var minFact      = parseFloat(document.getElementById('min_factura').value)   || 8;
+  var horasMes     = parseFloat(document.getElementById('horas_mes').value)     || 160;
 
   // Tier 4 siempre activo
   highlightTier(3);
@@ -1417,8 +1476,18 @@ function recalc() {
   var impAnoUSD = impuestoActivo ? (gastoMesUSD * 0.004 * 12) : 0;
   var impAnoCOP = impAnoUSD * tdc;
 
+  // Automatización de facturas savings (COP → USD)
+  var costoHora       = sueldoCap / horasMes;
+  var horasCapMes      = facturasMes * (minFact / 60);
+  var ahorroCapMes     = Math.min(horasCapMes * costoHora, sueldoCap);
+  var ahorroCapAnoCOP  = ahorroCapMes * 12;
+  var ahorroCapAnoUSD  = ahorroCapAnoCOP / tdc;
+  var costoPorFact     = costoHora * (minFact / 60);
+  var hintCapEl = document.getElementById('hint_cap');
+  if (hintCapEl) hintCapEl.textContent = facturasMes + ' facturas/mes · ' + horasCapMes.toFixed(1) + ' hrs/mes ahorradas · COP ' + Math.round(costoPorFact).toLocaleString() + ' por factura manual';
+
   // Neto
-  var totalSavingsUSD = cbUSD + cajAnoUSD + impAnoUSD;
+  var totalSavingsUSD = cbUSD + cajAnoUSD + impAnoUSD + ahorroCapAnoUSD;
   var netoAnoUSD = totalAnoUSD - totalSavingsUSD;
   var netoAnoCOP = netoAnoUSD * tdc;
 
@@ -1454,6 +1523,17 @@ function recalc() {
     setText('res_caj_cop', '≈ COP ' + fcop(cajAnoCOP));
   } else {
     hide('res_caj_row');
+  }
+
+  // Automatización facturas
+  if (ahorroCapAnoUSD > 0) {
+    show('res_cap_row');
+    setText('res_cap_usd', fusd(ahorroCapAnoUSD));
+    setText('res_cap_cop', '≈ COP ' + fcop(ahorroCapAnoCOP));
+    setText('res_cap_sub', facturasMes + ' facturas/mes automatizadas vs. captura manual');
+    setText('res_cap_detail', 'Capturista: COP ' + Math.round(sueldoCap).toLocaleString() + '/mes · ' + minFact + ' min/factura · ' + horasCapMes.toFixed(1) + ' hrs/mes ahorradas');
+  } else {
+    hide('res_cap_row');
   }
 
   // Impuesto
