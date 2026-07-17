@@ -1164,28 +1164,6 @@ lang="es">
             </div>
           </div>
 
-          <!-- Competencia comparison -->
-          <div style="margin-top:20px;background:linear-gradient(135deg,rgba(255,255,255,0.03) 0%,rgba(255,255,255,0.01) 100%);border:1px solid var(--black-4);border-radius:16px;padding:20px 22px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
-              <span style="font-size:16px;">⚡</span>
-              <div style="font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.07em;">Competencia · Costo mensual estimado</div>
-            </div>
-            <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-              <div>
-                <div style="font-size:26px;font-weight:900;color:var(--text-primary);letter-spacing:-0.02em;line-height:1;" id="comp_usd">USD 0</div>
-                <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">/ mes · tipo de cambio en vivo</div>
-              </div>
-              <div style="text-align:right;">
-                <div style="font-size:16px;font-weight:700;color:var(--text-secondary);" id="comp_cop">≈ COP 0</div>
-                <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">COP equivalente</div>
-              </div>
-            </div>
-            <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--black-4);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-              <div style="font-size:11px;color:var(--text-muted);">Ahorro anual vs competencia</div>
-              <div style="font-size:15px;font-weight:800;color:var(--green);" id="comp_ahorro">—</div>
-            </div>
-          </div>
-
           <div style="margin-top:12px;font-size:10px;color:var(--text-muted);line-height:1.6;">
             * Tipo de cambio COP/USD configurable. El cashback aplica 6 meses del año.
           </div>
@@ -1553,28 +1531,6 @@ function recalc() {
   }
   setText('res_neto_cop', '≈ COP ' + fcop(netoAnoCOP));
   setText('res_neto_usd', '≈ COP ' + fcop(netoAnoCOP));
-
-  // ── Competencia ──
-  var compMesCOP = 3600000;
-  var compMesUSD = compMesCOP / tdc;
-  var compAnoUSD = compMesUSD * 12;
-  var compAnoCOP = compMesCOP * 12;
-  setText('comp_usd', fusd(compMesUSD) + ' / mes');
-  setText('comp_cop', '≈ COP ' + fcop(compMesCOP));
-  var ahorroVsCompUSD = compAnoUSD - netoAnoUSD;
-  var ahorroEl = document.getElementById('comp_ahorro');
-  if (ahorroEl) {
-    if (ahorroVsCompUSD > 0) {
-      ahorroEl.textContent = 'Jeeves ahorra ' + fusd(ahorroVsCompUSD) + ' / año';
-      ahorroEl.style.color = 'var(--green)';
-    } else if (ahorroVsCompUSD < 0) {
-      ahorroEl.textContent = 'Competencia ahorra ' + fusd(Math.abs(ahorroVsCompUSD)) + ' / año';
-      ahorroEl.style.color = 'var(--amber)';
-    } else {
-      ahorroEl.textContent = 'Precio equivalente';
-      ahorroEl.style.color = 'var(--text-muted)';
-    }
-  }
 
   // ROI
   var roiEl = document.getElementById('res_roi');
